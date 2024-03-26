@@ -20,3 +20,88 @@
 - [[https://github.com/ruby-test-mode/ruby-test-mode][ruby-test-mode]]: "Emacs minor mode for Behaviour and Test Driven Development in
   Ruby."
 - [[https://github.com/arthurnn/minitest-emacs][minitest-emacs]]: "A minitest mode for emacs"
+- [[https://codeberg.org/emacs-weirdware-abandoned/test-case-mode][test-case-mode]]: "test-case-mode is a minor mode for running unit tests. It is
+  extensible and currently comes with back-ends for JUnit, CxxTest, CppUnit,
+  gtest, Python and Ruby."
+- [[https://github.com/abend/nunit-emacs][nunit-emacs]]: "Helpers for using Nunit with Emacs."
+
+* Notes from reddit
+
+Mode for running .NET / C# unit tests
+Overview
+I am considering writing a new mode for running .NET / C# unit tests, and I thought I'd ask for some advice on how to go about it. Or, if there already is an existing mode which does what I'm after, if you could please point it out. The remainder of this post describes my requirements, what I have found out so far, and the approach I intend to take. I apologise in advance for the length of this post, but it seemed easier to lay down all the information I have thus far.
+
+High-Level Requirements
+My requirements are as follows:
+
+the ability to see a unit test tree across all projects in a solution.
+
+ability to run individual tests, or nodes from the tree.
+
+ability to see which tests have failed and which tests have passed within the tree.
+
+ability to see details of the failure.
+
+ideally, resolve tests and stack trace elements back to source code.
+
+approach must rely on the dotnet tool. It can output test results in a format called TRX (Microsoft Visual Studio Test Results File), via its logger parameter --logger=trx [1, 2]. TRX is XML based, and the XSD is available here [3]. An example TRX for is available here [4].
+
+the abilito to debug tests is explicitly not a requirement, and is left for DAP.
+
+Prior Art
+I did an investigation of the available modes related to unit testing to see if a) I could use them as-is (no luck); or, b) if they could give me inspiration to implement a new mode. I'll briefly summarise the prior art I have found so far that I believe is relevant. Please let me know if I missed important modes. Note: all of the modes that follow appear to be abandoned at present.
+
+test-case-mode
+Link: TestCaseMode
+
+Description: "test-case-mode is a minor mode for running unit tests. It is extensible and currently comes with back-ends for JUnit, CxxTest, CppUnit, Python and Ruby."
+
+Notes:
+
+Seems to be regex / grep based.
+
+A slightly more up-to-date version is available here [5].
+
+The Emacs Wiki page recommends using projectile, which I found puzzling; Any pointers on what is meant by this would be greatly appreciated.
+
+Links back to source code buffers and highlights test failures on them.
+
+See attached screenshot.
+
+boost-test
+Link: boost-test
+
+Description: "An emacs-mode for the Boost.Test framework."
+
+Notes:
+
+Appears to parse the boost XML only at a high-level and obtains relevant bits for its functionality.
+
+Can run / re-run tests from its buffer.
+
+nunit-results
+Link: nunit-results
+
+Description: "Helpers for using Nunit with Emacs."
+
+Notes:
+
+Parses the XML.
+
+Introduces the notion of watching the file to automatically update when required.
+
+Next Steps, Open Questions
+I thought of implementing the new mode by following the approach of boost-test and nunit-results - parse the XML using lisp. However, after that, it becomes a bit hazy:
+
+should one integrate with a mode such as compilation, flycheck flymake for error display or is this a bad idea?
+
+should one integrate with lsp / eglot to locate types or is it better to keep the mode stand alone?
+
+I use imenu-list[6] a fair bit with eglot; is imenu a good candidate for keeping the test tree or am I abusing its functionality?
+
+is there any testing infrastructure in Emacs which I should be reusing? Or more generally, any other appropriate Emacs infrastructure - I'd rather not re-invent the wheel if at all possible.
+
+More generally, any comments or suggestions you may have to help guide the approach are appreciated. Many thanks for your time.
+
+Links
+[1] https://stackoverflow.com/questions/49917144/how-to-publish-results-using-dotnet-test-command [2] https://github.com/microsoft/vstest/blob/main/docs/report.md#syntax-of-default-loggers [3] https://github.com/HamedStack/HamedStack.VSTest/blob/main/HamedStack.VSTest/Schema/vstst.xsd [4] https://github.com/x97mdr/pickles/blob/master/src/Pickles/Pickles.Test/results-example-mstest.trx [5] https://codeberg.org/emacs-weirdware-abandoned/test-case-mode [6] https://github.com/bmag/imenu-list
