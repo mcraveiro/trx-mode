@@ -1,0 +1,22 @@
+
+
+* Links
+
+- [[https://github.com/emacs-mirror/emacs/blob/master/lisp/tree-widget.el][tree-widget.el]]: "This library provide a tree widget useful to display data
+  structures organized in a hierarchical order."
+- [[https://stackoverflow.com/questions/25104291/change-text-of-tree-widget-node][Change text of tree widget node]]
+- [[https://www.emacswiki.org/emacs/TreeMode][TreeMode]]
+- [[https://mbork.pl/2015-11-21_The_Emacs_widget_library_and_automatic_modification_of_editing_fields][The Emacs widget library and automatic modification of editing fields]]
+
+
+* Modes to look at
+
+- [[https://github.com/scottaj/mocha.el][mocha.el]]: "Emacs helpers for running mocha tests. It lets you test an entire
+  project, a particular file, or a particular test in that file."
+- [[https://github.com/rymndhng/jest-test-mode][jest-test-mode]]: "Emacs minor mode for running jest (Nodejs test framework).
+  Inspired by ruby-test-mode and cider-test."
+- [[https://github.com/clojure-emacs/cider/blob/master/cider-test.el][cider-test.el]]
+- [[https://jpace.wordpress.com/2015/02/16/rails-testing-and-emacs-mode-line/][Rails testing and Emacs mode line]]
+- [[https://github.com/ruby-test-mode/ruby-test-mode][ruby-test-mode]]: "Emacs minor mode for Behaviour and Test Driven Development in
+  Ruby."
+- [[https://github.com/arthurnn/minitest-emacs][minitest-emacs]]: "A minitest mode for emacs"
