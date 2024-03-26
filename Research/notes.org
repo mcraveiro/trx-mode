@@ -24,6 +24,7 @@
   extensible and currently comes with back-ends for JUnit, CxxTest, CppUnit,
   gtest, Python and Ruby."
 - [[https://github.com/abend/nunit-emacs][nunit-emacs]]: "Helpers for using Nunit with Emacs."
+- [[https://marketplace.visualstudio.com/items?itemName=scabana.trxviewer][trxviewer]]: An extension to visualize data contained in a .trx file.
 
 * Notes from reddit
 
