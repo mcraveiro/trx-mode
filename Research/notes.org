@@ -1,5 +1,3 @@
-
-
 * Links
 
 - [[https://github.com/emacs-mirror/emacs/blob/master/lisp/tree-widget.el][tree-widget.el]]: "This library provide a tree widget useful to display data

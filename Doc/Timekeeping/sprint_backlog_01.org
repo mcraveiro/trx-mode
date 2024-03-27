@@ -1,0 +1,100 @@
+#+title: Sprint Backlog 01
+#+options: date:nil toc:nil author:nil num:nil
+#+todo: STARTED | COMPLETED CANCELLED POSTPONED
+#+tags: { inner(i) outer(o) toil(t) }
+
+* Sprint Goals
+
+- Create infrastructure for project
+
+* Stories
+
+#+begin: clocktable :maxlevel 3 :scope subtree :indent nil :emphasize nil :scope file :narrow 75 :formula %
+#+CAPTION: Clock summary at [2024-03-27 Wed 10:43]
+| <75>                                        |        |      |       |
+| Headline                                    | Time   |      |     % |
+|---------------------------------------------+--------+------+-------|
+| *Total time*                                | *0:31* |      | 100.0 |
+|---------------------------------------------+--------+------+-------|
+| Stories                                     | 0:31   |      | 100.0 |
+| Backlog refinement                          |        | 0:20 |  64.5 |
+| Generate test data files for sample project |        | 0:11 |  35.5 |
+#+end:
+
+** STARTED Backlog refinement                                         :outer:
+   :LOGBOOK:
+   CLOCK: [2024-03-27 Wed 10:23]--[2024-03-27 Wed 10:43] =>  0:20
+   :END:
+
+Time taken with agile processes such as backlog refinement, etc.
+
+#+begin_src emacs-lisp
+(org-agenda-file-to-front)
+#+end_src
+
+** STARTED Generate test data files for sample project                :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-27 Wed 10:11]--[2024-03-27 Wed 10:22] =>  0:11
+   :END:
+
+Create a realistic project with a few unit tests. Things to test:
+
+- project with more than one solution; correctly detects each solution and the
+  CS projects associated with each solution.
+
+** Download and install omnisharp                                     :outer:
+
+We need the latest version
+
+** Ensure build works with xunit                                      :outer:
+
+Requires internet for nuget.
+
+** User interface                                                     :inner:
+
+Notes on the overall user interface for this mode.
+
+We need the following dedicated buffers:
+
+- tree widget: overview of all tests in project
+- for each project, we need a list of available TRX files. One of these should
+  be the currently loaded file. The tree should indicate when the TRX file is
+  not the latest. We also need to know when we filter tests and did not run all
+  tests.
+
+*** Tree widget
+
+Displays:
+
+  - solutions
+    - projects in solution
+      - tests in project.
+
+** Clean up folder structure                                          :outer:
+
+Its a bit messy at the moment, we should organise it.
+
+** Add build for Emacs                                                :outer:
+
+We need CI for emacs so that when we push we compile and run all lisp tests.
+
+** Add lisp skeleton                                                  :inner:
+
+We need to add a trivial skeleton for lisp with a single function and a single
+test.
+
+** Create a simple function to read TRX XML                           :inner:
+
+We need a very simple function to read a given file and print its contents.
+
+** Investigate sharper code to read a solution                        :inner:
+
+Sharper mode must already read a solution and get all of its projects. We need
+to do something similar. Also check code to find all solutions and give user a
+choice.
+
+** Find out how to use icons in a widget tree                         :inner:
+
+It would be nice to have icons for solutions and projects. There may already be
+support for these with the fonts we have. It would also be nice to have icons
+for green, yellow and red for tests.
