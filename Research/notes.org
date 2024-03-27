@@ -25,6 +25,8 @@
   gtest, Python and Ruby."
 - [[https://github.com/abend/nunit-emacs][nunit-emacs]]: "Helpers for using Nunit with Emacs."
 - [[https://marketplace.visualstudio.com/items?itemName=scabana.trxviewer][trxviewer]]: An extension to visualize data contained in a .trx file.
+- [[https://dbarrowstechblog.blogspot.com/2012/08/parsing-mstest-results-trx-files.html][Parsing MSTEST results (.trx files) programmatically (in C#)]]
+- [[https://arasheedu.blogspot.com/2009/12/demystifying-visual-studio-trx-files.html][Demystifying the Visual Studio trx files]]
 
 * Notes from reddit
 
