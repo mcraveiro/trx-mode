@@ -1,0 +1,16 @@
+:properties:
+:id: 7C073D6E-8ADB-B7B4-148B-82DB8D921653
+:end:
+#+title: TRX Mode
+#+author: Marco Craveiro
+#+export_file_name: index
+#+options: <:nil c:nil todo:nil ^:nil d:nil date:nil author:nil toc:nil html-postamble:nil
+#+startup: inlineimages
+
+* Overview
+
+Emacs mode for Visual Studio Test Results Files (TRX)
+
+As per this Reddit discussion:
+
+- [Mode for running .NET / C# unit tests](https://www.reddit.com/r/emacs/comments/1bavvhs/mode_for_running_net_c_unit_tests/)
