@@ -23,6 +23,7 @@
 
 ** STARTED Backlog refinement                                         :outer:
    :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 13:58] =>  0:07
    CLOCK: [2024-03-27 Wed 10:23]--[2024-03-27 Wed 10:43] =>  0:20
    :END:
 
@@ -42,11 +43,22 @@ Create a realistic project with a few unit tests. Things to test:
 - project with more than one solution; correctly detects each solution and the
   CS projects associated with each solution.
 
-** Download and install omnisharp                                     :outer:
+** STARTED Read boost-test code to get ideas                          :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-27 Wed 13:50]--[2024-03-27 Wed 14:23] =>  0:33
+   :END:
+
+** COMPLETED Download and install omnisharp                           :outer:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 13:10]--[2024-03-28 Thu 13:30] =>  0:20
+   :END:
 
 We need the latest version
 
-** Ensure build works with xunit                                      :outer:
+** COMPLETED Ensure build works with xunit                            :outer:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 13:31]--[2024-03-28 Thu 13:50] =>  0:19
+   :END:
 
 Requires internet for nuget.
 
@@ -98,3 +110,15 @@ choice.
 It would be nice to have icons for solutions and projects. There may already be
 support for these with the fonts we have. It would also be nice to have icons
 for green, yellow and red for tests.
+
+** Add a command to run tests                                         :inner:
+
+We should be able to:
+
+- run all tests in the solution
+- run all tests in the project
+- run a specific.
+
+From the tree, run tests at a specific node of the tree. In addition, we could
+also have a specific "test" buffer which is a list, offering a table view of the
+tests. Here you can run tests based on marking them.

@@ -1,4 +1,4 @@
-﻿namespace ProjectThree;
+namespace ProjectThree;
 
 public class Class1
 {

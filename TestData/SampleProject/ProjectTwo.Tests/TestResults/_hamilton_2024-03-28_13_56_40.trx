@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="78e293a6-a1e3-47ed-b065-a287f5c52a29" name="@hamilton 2024-03-28 13:56:40" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-03-28T13:56:40.9858417+00:00" queuing="2024-03-28T13:56:40.9858418+00:00" start="2024-03-28T13:56:36.2995297+00:00" finish="2024-03-28T13:56:41.0701958+00:00" />
+  <TestSettings name="default" id="e676cc9c-9797-401f-b973-f5eeb42a8fcd">
+    <Deployment runDeploymentRoot="_hamilton_2024-03-28_13_56_40" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="ccea11ba-1355-4302-98d4-b34af2067872" testId="c323de40-8502-4fcb-779c-c528d1e9362f" testName="ProjectTwo.Tests.UnitTest1.Test1" computerName="hamilton" duration="00:00:00.0134907" startTime="2024-03-28T13:56:40.5295550+00:00" endTime="2024-03-28T13:56:40.5296263+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ccea11ba-1355-4302-98d4-b34af2067872" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ProjectTwo.Tests.UnitTest1.Test1" storage="/home/marco/development/emacs/trx-mode/testdata/sampleproject/projecttwo.tests/bin/debug/net8.0/projecttwo.tests.dll" id="c323de40-8502-4fcb-779c-c528d1e9362f">
+      <Execution id="ccea11ba-1355-4302-98d4-b34af2067872" />
+      <TestMethod codeBase="/home/marco/Development/emacs/trx-mode/TestData/SampleProject/ProjectTwo.Tests/bin/Debug/net8.0/ProjectTwo.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ProjectTwo.Tests.UnitTest1" name="Test1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="c323de40-8502-4fcb-779c-c528d1e9362f" executionId="ccea11ba-1355-4302-98d4-b34af2067872" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.02] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.3)
+[xUnit.net 00:00:00.69]   Discovering: ProjectTwo.Tests
+[xUnit.net 00:00:00.81]   Discovered:  ProjectTwo.Tests
+[xUnit.net 00:00:00.83]   Starting:    ProjectTwo.Tests
+[xUnit.net 00:00:01.30]   Finished:    ProjectTwo.Tests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
