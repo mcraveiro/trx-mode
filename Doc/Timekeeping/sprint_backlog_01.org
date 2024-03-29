@@ -10,25 +10,26 @@
 * Stories
 
 #+begin: clocktable :maxlevel 3 :scope subtree :indent nil :emphasize nil :scope file :narrow 75 :formula %
-#+CAPTION: Clock summary at [2024-03-29 Fri 14:11]
-| <75>                                        |        |      |       |
-| Headline                                    | Time   |      |     % |
-|---------------------------------------------+--------+------+-------|
-| *Total time*                                | *5:31* |      | 100.0 |
-|---------------------------------------------+--------+------+-------|
-| Stories                                     | 5:31   |      | 100.0 |
-| Backlog refinement                          |        | 0:33 |  10.0 |
-| Generate test data files for sample project |        | 0:11 |   3.3 |
-| Read boost-test code to get ideas           |        | 0:33 |  10.0 |
-| Download and install omnisharp              |        | 0:20 |   6.0 |
-| Ensure build works with xunit               |        | 0:19 |   5.7 |
-| Print XML properly in ielm                  |        | 0:21 |   6.3 |
-| Clean up folder structure                   |        | 0:24 |   7.3 |
-| Create a simple function to read TRX XML    |        | 0:06 |   1.8 |
-| Create a summary buffer from TRX content    |        | 0:06 |   1.8 |
-| Investigate sharper's way to find solutions |        | 1:02 |  18.7 |
-| Investigate eglot's use of project          |        | 0:27 |   8.2 |
-| Create a basic tree widget with projects    |        | 1:09 |  20.8 |
+#+CAPTION: Clock summary at [2024-03-29 Fri 18:11]
+| <75>                                          |        |      |       |
+| Headline                                      | Time   |      |     % |
+|-----------------------------------------------+--------+------+-------|
+| *Total time*                                  | *6:29* |      | 100.0 |
+|-----------------------------------------------+--------+------+-------|
+| Stories                                       | 6:29   |      | 100.0 |
+| Backlog refinement                            |        | 0:33 |   8.5 |
+| Generate test data files for sample project   |        | 0:11 |   2.8 |
+| Read boost-test code to get ideas             |        | 0:33 |   8.5 |
+| Download and install omnisharp                |        | 0:20 |   5.1 |
+| Ensure build works with xunit                 |        | 0:19 |   4.9 |
+| Print XML properly in ielm                    |        | 0:21 |   5.4 |
+| Investigate sharper's way to find solutions   |        | 1:02 |  15.9 |
+| Investigate eglot's use of project            |        | 0:27 |   6.9 |
+| Create a basic tree widget with projects      |        | 1:09 |  17.7 |
+| Get xunit samples to compile cleanly on Linux |        | 0:58 |  14.9 |
+| Clean up folder structure                     |        | 0:24 |   6.2 |
+| Create a simple function to read TRX XML      |        | 0:06 |   1.5 |
+| Create a summary buffer from TRX content      |        | 0:06 |   1.5 |
 #+end:
 
 ** STARTED Backlog refinement                                         :outer:
@@ -138,6 +139,16 @@ We need to understand how we know we are in a project. Eglot already does this.
 #+end_src
 
 
+** COMPLETED Get xunit samples to compile cleanly on Linux            :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-29 Fri 17:13]--[2024-03-29 Fri 18:11] =>  0:58
+   :END:
+
+At present we are getting a lot of weird errors which are not related to the
+unit tests. Try to fix these so we can get a clean run of the tests.
+
+- installed mono, fixed issues with mono.
+
 ** STARTED Clean up folder structure                                  :outer:
    :LOGBOOK:
    CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 14:15] =>  0:24
@@ -154,10 +165,14 @@ Its a bit messy at the moment, we should organise it.
 
 We need a very simple function to read a given file and print its contents.
 
-** STARTED Create a summary buffer from TRX content                   :inner:
+** STARTED Create a summary buffer from TRX content                  :inner:
    :LOGBOOK:
    CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
    :END:
+
+** Allow expanding and collapsing tree                                :inner:
+
+- make buffer read only, but still allowing for expanding and collapsing tree.
 
 ** User interface                                                     :inner:
 

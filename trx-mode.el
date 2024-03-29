@@ -92,6 +92,11 @@ Just a facility to make these invocations shorter."
   (let ((extension (file-name-extension filename)))
     (string= "sln" extension)))
 
+(defun trx--filename-trx-p (filename)
+  "Return non-nil if FILENAME is a solution."
+  (let ((extension (file-name-extension filename)))
+    (string= "trx" extension)))
+
 (defun trx--read-solution ()
   "Offer completion for solution files under the current project's root."
   (let* ((all-files (project-files (project-current t)))
@@ -122,6 +127,7 @@ PROJECTS is the list of projects in the solution."
        :args (mapcar
               (apply-partially #'widget-convert 'item)
               (mapcar 'file-name-base (mapcar 'car projects)))
+       (widget-setup)
       (switch-to-buffer (current-buffer))
       ))))
 
