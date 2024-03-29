@@ -10,15 +10,25 @@
 * Stories
 
 #+begin: clocktable :maxlevel 3 :scope subtree :indent nil :emphasize nil :scope file :narrow 75 :formula %
-#+CAPTION: Clock summary at [2024-03-27 Wed 10:43]
+#+CAPTION: Clock summary at [2024-03-29 Fri 14:11]
 | <75>                                        |        |      |       |
 | Headline                                    | Time   |      |     % |
 |---------------------------------------------+--------+------+-------|
-| *Total time*                                | *0:31* |      | 100.0 |
+| *Total time*                                | *5:31* |      | 100.0 |
 |---------------------------------------------+--------+------+-------|
-| Stories                                     | 0:31   |      | 100.0 |
-| Backlog refinement                          |        | 0:20 |  64.5 |
-| Generate test data files for sample project |        | 0:11 |  35.5 |
+| Stories                                     | 5:31   |      | 100.0 |
+| Backlog refinement                          |        | 0:33 |  10.0 |
+| Generate test data files for sample project |        | 0:11 |   3.3 |
+| Read boost-test code to get ideas           |        | 0:33 |  10.0 |
+| Download and install omnisharp              |        | 0:20 |   6.0 |
+| Ensure build works with xunit               |        | 0:19 |   5.7 |
+| Print XML properly in ielm                  |        | 0:21 |   6.3 |
+| Clean up folder structure                   |        | 0:24 |   7.3 |
+| Create a simple function to read TRX XML    |        | 0:06 |   1.8 |
+| Create a summary buffer from TRX content    |        | 0:06 |   1.8 |
+| Investigate sharper's way to find solutions |        | 1:02 |  18.7 |
+| Investigate eglot's use of project          |        | 0:27 |   8.2 |
+| Create a basic tree widget with projects    |        | 1:09 |  20.8 |
 #+end:
 
 ** STARTED Backlog refinement                                         :outer:
@@ -78,28 +88,17 @@ contents.
 
 - [[https://emacs.stackexchange.com/questions/27338/lisp-form-print-depth][Lisp form print depth]]
 
-** STARTED Clean up folder structure                                  :outer:
+** COMPLETED Investigate sharper's way to find solutions              :inner:
    :LOGBOOK:
-   CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 14:15] =>  0:24
+   CLOCK: [2024-03-29 Fri 12:09]--[2024-03-29 Fri 13:00] =>  0:51
+   CLOCK: [2024-03-29 Fri 11:50]--[2024-03-29 Fri 12:01] =>  0:11
    :END:
 
-Its a bit messy at the moment, we should organise it.
+- sharper already has code to find solution and list projects in solution. We
+  can either copy and paste or add a dependency. For now we will copy and paste.
+  Maybe we could create a library with shared code for dotnet tool?
 
-- convert files to unix.
-
-** STARTED Create a simple function to read TRX XML                   :inner:
-   :LOGBOOK:
-   CLOCK: [2024-03-28 Thu 17:23]--[2024-03-28 Thu 17:29] =>  0:06
-   :END:
-
-We need a very simple function to read a given file and print its contents.
-
-** STARTED Create a summary buffer from TRX content                   :inner:
-   :LOGBOOK:
-   CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
-   :END:
-
-** STARTED Investigate eglot's use of project                         :inner:
+** COMPLETED Investigate eglot's use of project                       :inner:
    :LOGBOOK:
    CLOCK: [2024-03-28 Thu 18:12]--[2024-03-28 Thu 18:39] =>  0:27
    :END:
@@ -108,7 +107,11 @@ We need to understand how we know we are in a project. Eglot already does this.
 
 - how does this work with projectile?
 
-** Create a tree widget with TRX content                              :inner:
+** COMPLETED Create a basic tree widget with projects                 :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-29 Fri 13:38]--[2024-03-29 Fri 14:10] =>  0:32
+   CLOCK: [2024-03-29 Fri 13:01]--[2024-03-29 Fri 13:38] =>  0:37
+   :END:
 
 - [[https://stackoverflow.com/questions/25104291/change-text-of-tree-widget-node][Change text of tree widget node]]
 
@@ -134,6 +137,27 @@ We need to understand how we know we are in a project. Eglot already does this.
     (switch-to-buffer (current-buffer))))
 #+end_src
 
+
+** STARTED Clean up folder structure                                  :outer:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 14:15] =>  0:24
+   :END:
+
+Its a bit messy at the moment, we should organise it.
+
+- convert files to unix.
+
+** STARTED Create a simple function to read TRX XML                   :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:23]--[2024-03-28 Thu 17:29] =>  0:06
+   :END:
+
+We need a very simple function to read a given file and print its contents.
+
+** STARTED Create a summary buffer from TRX content                   :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
+   :END:
 
 ** User interface                                                     :inner:
 
