@@ -1,0 +1,3 @@
+[submodule "TestData/samples.xunit"]
+	path = TestData/samples.xunit
+	url = git@github.com:xunit/samples.xunit.git

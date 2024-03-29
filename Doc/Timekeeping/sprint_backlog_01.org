@@ -23,6 +23,7 @@
 
 ** STARTED Backlog refinement                                         :outer:
    :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:30]--[2024-03-28 Thu 17:36] =>  0:06
    CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 13:58] =>  0:07
    CLOCK: [2024-03-27 Wed 10:23]--[2024-03-27 Wed 10:43] =>  0:20
    :END:
@@ -62,6 +63,78 @@ We need the latest version
 
 Requires internet for nuget.
 
+** COMPLETED Print XML properly in ielm                                :toil:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:01]--[2024-03-28 Thu 17:22] =>  0:21
+   :END:
+
+At present we are getting a truncated lisp object in ielm. Get the entire
+contents.
+
+#+begin_src emacs-lisp
+(setq print-length 1024)
+(setq print-level 100)
+#+end_src
+
+- [[https://emacs.stackexchange.com/questions/27338/lisp-form-print-depth][Lisp form print depth]]
+
+** STARTED Clean up folder structure                                  :outer:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 14:15] =>  0:24
+   :END:
+
+Its a bit messy at the moment, we should organise it.
+
+- convert files to unix.
+
+** STARTED Create a simple function to read TRX XML                   :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:23]--[2024-03-28 Thu 17:29] =>  0:06
+   :END:
+
+We need a very simple function to read a given file and print its contents.
+
+** STARTED Create a summary buffer from TRX content                   :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
+   :END:
+
+** STARTED Investigate eglot's use of project                         :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-28 Thu 18:12]--[2024-03-28 Thu 18:39] =>  0:27
+   :END:
+
+We need to understand how we know we are in a project. Eglot already does this.
+
+- how does this work with projectile?
+
+** Create a tree widget with TRX content                              :inner:
+
+- [[https://stackoverflow.com/questions/25104291/change-text-of-tree-widget-node][Change text of tree widget node]]
+
+#+begin_src emacs-lisp
+(require 'tree-widget)
+
+(defun my-create-tree-widget ()
+  (interactive)
+  (with-current-buffer
+    (get-buffer-create "*my-tree-widget*")
+    (setq-local my-tree-widget
+        (widget-create
+         'tree-widget
+         :open t
+         :tag "one"
+         :args
+         (list (widget-convert
+            'tree-widget
+            :tag "two"
+            :args (mapcar
+                    (apply-partially #'widget-convert 'item)
+                    '("three" "four"))))))
+    (switch-to-buffer (current-buffer))))
+#+end_src
+
+
 ** User interface                                                     :inner:
 
 Notes on the overall user interface for this mode.
@@ -82,10 +155,6 @@ Displays:
     - projects in solution
       - tests in project.
 
-** Clean up folder structure                                          :outer:
-
-Its a bit messy at the moment, we should organise it.
-
 ** Add build for Emacs                                                :outer:
 
 We need CI for emacs so that when we push we compile and run all lisp tests.
@@ -94,10 +163,6 @@ We need CI for emacs so that when we push we compile and run all lisp tests.
 
 We need to add a trivial skeleton for lisp with a single function and a single
 test.
-
-** Create a simple function to read TRX XML                           :inner:
-
-We need a very simple function to read a given file and print its contents.
 
 ** Investigate sharper code to read a solution                        :inner:
 
