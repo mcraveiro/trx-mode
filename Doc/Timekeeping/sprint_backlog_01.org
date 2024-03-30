@@ -10,26 +10,27 @@
 * Stories
 
 #+begin: clocktable :maxlevel 3 :scope subtree :indent nil :emphasize nil :scope file :narrow 75 :formula %
-#+CAPTION: Clock summary at [2024-03-29 Fri 18:11]
+#+CAPTION: Clock summary at [2024-03-30 Sat 17:42]
 | <75>                                          |        |      |       |
 | Headline                                      | Time   |      |     % |
 |-----------------------------------------------+--------+------+-------|
-| *Total time*                                  | *6:29* |      | 100.0 |
+| *Total time*                                  | *7:20* |      | 100.0 |
 |-----------------------------------------------+--------+------+-------|
-| Stories                                       | 6:29   |      | 100.0 |
-| Backlog refinement                            |        | 0:33 |   8.5 |
-| Generate test data files for sample project   |        | 0:11 |   2.8 |
-| Read boost-test code to get ideas             |        | 0:33 |   8.5 |
-| Download and install omnisharp                |        | 0:20 |   5.1 |
-| Ensure build works with xunit                 |        | 0:19 |   4.9 |
-| Print XML properly in ielm                    |        | 0:21 |   5.4 |
-| Investigate sharper's way to find solutions   |        | 1:02 |  15.9 |
-| Investigate eglot's use of project            |        | 0:27 |   6.9 |
-| Create a basic tree widget with projects      |        | 1:09 |  17.7 |
-| Get xunit samples to compile cleanly on Linux |        | 0:58 |  14.9 |
-| Clean up folder structure                     |        | 0:24 |   6.2 |
-| Create a simple function to read TRX XML      |        | 0:06 |   1.5 |
-| Create a summary buffer from TRX content      |        | 0:06 |   1.5 |
+| Stories                                       | 7:20   |      | 100.0 |
+| Backlog refinement                            |        | 0:33 |   7.5 |
+| Generate test data files for sample project   |        | 0:11 |   2.5 |
+| Read boost-test code to get ideas             |        | 0:33 |   7.5 |
+| Download and install omnisharp                |        | 0:20 |   4.5 |
+| Ensure build works with xunit                 |        | 0:19 |   4.3 |
+| Print XML properly in ielm                    |        | 0:21 |   4.8 |
+| Investigate sharper's way to find solutions   |        | 1:02 |  14.1 |
+| Investigate eglot's use of project            |        | 0:27 |   6.1 |
+| Create a basic tree widget with projects      |        | 1:09 |  15.7 |
+| Get xunit samples to compile cleanly on Linux |        | 0:58 |  13.2 |
+| Clean up folder structure                     |        | 0:24 |   5.5 |
+| Create a simple function to read TRX XML      |        | 0:06 |   1.4 |
+| Create a summary buffer from TRX content      |        | 0:30 |   6.8 |
+| Group TRX files in filesystem                 |        | 0:27 |   6.1 |
 #+end:
 
 ** STARTED Backlog refinement                                         :outer:
@@ -170,6 +171,23 @@ We need a very simple function to read a given file and print its contents.
    CLOCK: [2024-03-30 Sat 12:12]--[2024-03-30 Sat 12:36] =>  0:24
    CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
    :END:
+
+** STARTED Group TRX files in filesystem                              :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-30 Sat 17:15a]--[2024-03-30 Sat 17:42] =>  0:27
+   :END:
+
+We need to list TRX files in filesystem and group them by project, by most
+recent. Algorithm:
+
+- find the solution file.
+- list projects in solution.
+- list all TRX files in project.
+- make the TRX paths relative to the solution path.
+- group TRX files by project.
+- get the most recent file in a project for each project.
+- use that to create the tree.
+- read each of these files.
 
 ** Allow expanding and collapsing tree                                :inner:
 
