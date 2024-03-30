@@ -42,6 +42,8 @@
 (defvar trx--sln-list-template "dotnet sln %t list"
   "Template for \"dotnet sln list\" invocations.")
 
+(defvar trx--file-extension ".trx" "Extension for TRX files.")
+
 (defun trx--message (text)
   "Show a TEXT as a message and log it, if `panda-less-messages' log only."
   (message "Sharper: %s" text)
@@ -96,6 +98,13 @@ Just a facility to make these invocations shorter."
   "Return non-nil if FILENAME is a solution."
   (let ((extension (file-name-extension filename)))
     (string= "trx" extension)))
+
+(defun trx--get-trx-paths ()
+  "Filter FILE-PATHS to obtain only trx files."
+  (cl-remove-if-not
+   (lambda (file-path)
+     (string-suffix-p trx--file-extension file-path))
+   (project-files (project-current t))))
 
 (defun trx--read-solution ()
   "Offer completion for solution files under the current project's root."

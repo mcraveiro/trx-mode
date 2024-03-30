@@ -167,6 +167,7 @@ We need a very simple function to read a given file and print its contents.
 
 ** STARTED Create a summary buffer from TRX content                  :inner:
    :LOGBOOK:
+   CLOCK: [2024-03-30 Sat 12:12]--[2024-03-30 Sat 12:36] =>  0:24
    CLOCK: [2024-03-28 Thu 17:41]--[2024-03-28 Thu 17:47] =>  0:06
    :END:
 
