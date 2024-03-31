@@ -174,6 +174,7 @@ We need a very simple function to read a given file and print its contents.
 
 ** STARTED Group TRX files in filesystem                              :inner:
    :LOGBOOK:
+   CLOCK: [2024-03-31 Sun 05:35]--[2024-03-31 Sun 05:55] =>  0:20
    CLOCK: [2024-03-30 Sat 17:15a]--[2024-03-30 Sat 17:42] =>  0:27
    :END:
 
@@ -188,6 +189,22 @@ recent. Algorithm:
 - get the most recent file in a project for each project.
 - use that to create the tree.
 - read each of these files.
+
+** STARTED Create project local variables                             :inner:
+   :LOGBOOK:
+   CLOCK: [2024-03-31 Sun 06:24]--[2024-03-31 Sun 06:28] =>  0:04
+   CLOCK: [2024-03-31 Sun 05:56]--[2024-03-31 Sun 06:11] =>  0:15
+   :END:
+
+We need to create TRX variables for each project. Otherwise projects will
+overwrite each other. We need to understand how other projects handle this.
+
+** STARTED Add CI for project                                         :inner:
+  :LOGBOOK:
+  CLOCK: [2024-03-31 Sun 06:28]--[2024-03-31 Sun 06:31] =>  0:03
+  :END:
+
+- we need to build and package the project.
 
 ** Allow expanding and collapsing tree                                :inner:
 

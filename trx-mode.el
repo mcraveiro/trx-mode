@@ -31,18 +31,34 @@
   "Visual Studio Test Results Files viewer."
   :group 'extensions)
 
-;;------------------Functions copied from Sharper mode--------------------------
-
 ;;
-;; For details on sharper mode see:
+;; Some of the below code was liberally copied and lightly altered from the
+;; following projects:
 ;;
-;; - https://github.com/sebasmonia/sharper
-;;
-;; Most of the code was copied as-is, with minor modifications.
+;; - sharper: dotnet solution handling code.
+;; - eglot: project handling.
 (defvar trx--sln-list-template "dotnet sln %t list"
   "Template for \"dotnet sln list\" invocations.")
 
 (defvar trx--file-extension ".trx" "Extension for TRX files.")
+
+(defvar trx--dotnet-projects-list nil
+  "List of projects in the current solution.")
+(defvar trx--project nil
+  "Dynamically non-nil when searching for projects in TRX context.")
+
+;; Copied from eglot.
+(defun trx--current-project ()
+  "Return a project object for TRX purposes.
+This relies on `project-current' and thus on
+`project-find-functions'. Functions in the latter variable (which
+see) can query the value `trx--lsp-context' to decide whether a
+given directory is a project containing a suitable root directory
+for TRX."
+  (let ((trx--lsp-context t))
+    (or (project-current)
+        `(transient . ,(expand-file-name default-directory)))))
+
 
 (defun trx--message (text)
   "Show a TEXT as a message and log it, if `panda-less-messages' log only."
@@ -119,6 +135,12 @@ Just a facility to make these invocations shorter."
 (defun trx--read-test-results-file (path)
   "Read a TRX file given by PATH."
   (xml-parse-file path))
+
+(defun trx--unique-list-test-results-file (sln-path)
+  "Produce a list of test results file, one per project in SLN-PATH."
+
+
+  )
 
 (defun trx--create-tree-widget (sln-path projects)
   "Create a tree widget for test results.
