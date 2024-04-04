@@ -201,6 +201,7 @@ overwrite each other. We need to understand how other projects handle this.
 
 ** STARTED Add CI for project                                         :inner:
   :LOGBOOK:
+  CLOCK: [2024-03-31 Sun 13:55]--[2024-03-31 Sun 14:09] =>  0:14
   CLOCK: [2024-03-31 Sun 06:28]--[2024-03-31 Sun 06:31] =>  0:03
   :END:
 

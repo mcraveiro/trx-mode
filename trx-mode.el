@@ -55,10 +55,8 @@ This relies on `project-current' and thus on
 see) can query the value `trx--lsp-context' to decide whether a
 given directory is a project containing a suitable root directory
 for TRX."
-  (let ((trx--lsp-context t))
-    (or (project-current)
-        `(transient . ,(expand-file-name default-directory)))))
-
+  (or (project-current)
+      `(transient . ,(expand-file-name default-directory))))
 
 (defun trx--message (text)
   "Show a TEXT as a message and log it, if `panda-less-messages' log only."
