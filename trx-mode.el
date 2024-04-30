@@ -40,6 +40,8 @@
 (defvar trx--sln-list-template "dotnet sln %t list"
   "Template for \"dotnet sln list\" invocations.")
 
+(defvar trx--file-name "TestResults.trx" "File name for TRX files.")
+
 (defvar trx--file-extension ".trx" "Extension for TRX files.")
 
 (defvar trx--dotnet-projects-list nil
@@ -108,16 +110,16 @@ Just a facility to make these invocations shorter."
   (let ((extension (file-name-extension filename)))
     (string= "sln" extension)))
 
-(defun trx--filename-trx-p (filename)
-  "Return non-nil if FILENAME is a solution."
-  (let ((extension (file-name-extension filename)))
-    (string= "trx" extension)))
+(defun trx--filename-trx-p (path)
+  "Return non-nil if PATH is a solution."
+  (let ((filename (file-name-nondirectory path)))
+    (string= trx--file-name filename)))
 
-(defun trx--get-trx-paths ()
+(defun trx--get-trx-files ()
   "Filter FILE-PATHS to obtain only trx files."
   (cl-remove-if-not
    (lambda (file-path)
-     (string-suffix-p trx--file-extension file-path))
+     (trx--filename-trx-p file-path))
    (project-files (project-current t))))
 
 (defun trx--read-solution ()
@@ -133,12 +135,6 @@ Just a facility to make these invocations shorter."
 (defun trx--read-test-results-file (path)
   "Read a TRX file given by PATH."
   (xml-parse-file path))
-
-(defun trx--unique-list-test-results-file (sln-path)
-  "Produce a list of test results file, one per project in SLN-PATH."
-
-
-  )
 
 (defun trx--create-tree-widget (sln-path projects)
   "Create a tree widget for test results.

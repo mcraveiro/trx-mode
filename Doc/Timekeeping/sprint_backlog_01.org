@@ -35,6 +35,7 @@
 
 ** STARTED Backlog refinement                                         :outer:
    :LOGBOOK:
+   CLOCK: [2024-04-30 Tue 18:32]--[2024-04-30 Tue 18:40] =>  0:08
    CLOCK: [2024-03-28 Thu 17:30]--[2024-03-28 Thu 17:36] =>  0:06
    CLOCK: [2024-03-28 Thu 13:51]--[2024-03-28 Thu 13:58] =>  0:07
    CLOCK: [2024-03-27 Wed 10:23]--[2024-03-27 Wed 10:43] =>  0:20
@@ -174,6 +175,7 @@ We need a very simple function to read a given file and print its contents.
 
 ** STARTED Group TRX files in filesystem                              :inner:
    :LOGBOOK:
+   CLOCK: [2024-04-30 Tue 18:47]--[2024-04-30 Tue 19:16] =>  0:29
    CLOCK: [2024-03-31 Sun 05:35]--[2024-03-31 Sun 05:55] =>  0:20
    CLOCK: [2024-03-30 Sat 17:15a]--[2024-03-30 Sat 17:42] =>  0:27
    :END:
@@ -189,6 +191,16 @@ recent. Algorithm:
 - get the most recent file in a project for each project.
 - use that to create the tree.
 - read each of these files.
+
+  #+begin_src emacs-lisp
+  (file-name-split
+   (file-name-parent-directory
+    (file-name-parent-directory "/home/marco/Development/emacs/trx-mode/TestData/samples.xunit/UseCulture/TestResults/TestResults.trx")))
+  #+end_src
+
+  #+RESULTS:
+  |   | home | marco | Development | emacs | trx-mode | TestData | samples.xunit | UseCulture |   |
+
 
 ** STARTED Create project local variables                             :inner:
    :LOGBOOK:
@@ -206,6 +218,44 @@ overwrite each other. We need to understand how other projects handle this.
   :END:
 
 - we need to build and package the project.
+
+** STARTED Thoughts on Object model                                   :inner:
+   :LOGBOOK:
+   CLOCK: [2024-04-13 Sat 06:04]--[2024-04-13 Sat 06:31] =>  0:27
+   :END:
+
+Notes:
+
+- TRX files have a notion of a "run id" but it is not consistent across
+  projects; each C# project has its own run id. Therefore its not possible to
+  have a "solution level" notion of a run, which would be more useful. This
+  means for example that if you run all tests on a solution, and then run only
+  say a single C# project's tests, there is no way to know that these were two
+  different invocations of =dotnet test=, and to mark "old" tests appropriately.
+- any linkages between classes and tests should be left to the LSP server. We
+  can provide hints such as what tests map to what project but that's about it.
+- we should have imenu integration to list tests.
+- the running of the tests should be left to sharper. We merely provide a
+  browser for generated TRX files. However it would be very nice to be able to
+  re-run all failed tests from previous invocation.
+- we should provide an automated way to monitor for new TRX files via a timer.
+- building of the object model:
+  - get all TRX files on a =project.el= project.
+  - group files by top-level =TestResults= directory.
+  - get the C# project above the =TestResults= directory.
+
+
+
+
+
+** STARTED Naming of TRX file                                         :inner:
+   :LOGBOOK:
+   CLOCK: [2024-04-30 Tue 18:41]--[2024-04-30 Tue 18:46] =>  0:05
+   :END:
+
+Its possible to name the TRX file to a fixed name, without timestamps. Given
+that we don't often need to look at previous runs of tests, we should make that
+a requirement. Users should be able to configure the TRX file name.
 
 ** Allow expanding and collapsing tree                                :inner:
 
